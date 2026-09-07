@@ -66,7 +66,6 @@ $$
 
 The implementation also provides global descriptors, where the averaging is performed over all bonds in the configuration instead of the neighbourhood of a single atom.
 
-A detailed derivation and mathematical discussion are provided separately in the project report.
 ---
 
 ## Results
