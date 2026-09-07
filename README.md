@@ -1,8 +1,8 @@
 # Steinhardt Bond-Orientational Order Parameters
 
-A small Python implementation of the Steinhardt bond-orientational order parameters for analysing local and global atomic structure.
+A small Python implementation of the Steinhardt bond-orientational order parameters for analysing local and global atomic structures.
 
-The code calculates
+The code calculates:
 
 - \(Q_l\): second-order, norm-like rotational invariant
 - \(W_l\): third-order rotational invariant obtained from cubic scalar coupling
@@ -16,29 +16,29 @@ The numerical kernels are accelerated with Numba, while ASE is used for structur
 
 For a central atom \(i\) with \(N_b\) neighbours, the local spherical-harmonic coefficients are calculated as
 
-$$
+\[
 q_{lm}(i)=
 \frac{1}{N_b}
 \sum_{j=1}^{N_b}
 Y_{lm}(\theta_j,\phi_j)
-$$
+\]
 
-where \(Y_{lm}\) are the spherical harmonics evaluated along the neighbour bond directions.
+where \(Y_{lm}\) are spherical harmonics evaluated along the neighbour bond directions.
 
 The second-order rotational invariant is
 
-$$
+\[
 Q_l(i)=
 \sqrt{
 \frac{4\pi}{2l+1}
 \sum_{m=-l}^{l}
 |q_{lm}(i)|^2
 }
-$$
+\]
 
 The third-order invariant is obtained by coupling three \(q_{lm}\) components using the Wigner 3-j symbol:
 
-$$
+\[
 W_l(i)=
 \sum_{m_1+m_2+m_3=0}
 \begin{pmatrix}
@@ -48,11 +48,11 @@ m_1 & m_2 & m_3
 q_{lm_1}(i)
 q_{lm_2}(i)
 q_{lm_3}(i)
-$$
+\]
 
 The normalized third-order invariant is
 
-$$
+\[
 \hat{W}_l(i)=
 \frac{
 W_l(i)
@@ -62,7 +62,7 @@ W_l(i)
 |q_{lm}(i)|^2
 \right)^{3/2}
 }
-$$
+\]
 
 The implementation also provides global descriptors, where the averaging is performed over all bonds in the configuration instead of the neighbourhood of a single atom.
 
@@ -70,27 +70,29 @@ The implementation also provides global descriptors, where the averaging is perf
 
 ## Results
 
-The implementation was checked using ideal FCC, BCC, HCP and simple-cubic structures.
+The implementation was validated using ideal FCC, BCC, HCP, and simple-cubic structures.
 
 ### Bond-order fingerprint
 
 ![Steinhardt bond-order fingerprint](results/steinhardt_Q_fingerprint_heatmap.png)
 
-The different crystal structures produce clearly different \(Q_l\) fingerprints.  
-For example, FCC is characterized by relatively large \(Q_6\), while simple cubic has a much larger \(Q_4\).
+The different crystal structures produce distinct \(Q_l\) fingerprints.
+
+For example, FCC is characterized by a relatively large \(Q_6\), while simple cubic exhibits a much larger \(Q_4\).
 
 ### Common \(Q_4\)-\(Q_6\) fingerprints
 
 ![Crystal fingerprint using Q4 and Q6](results/crystal_fingerprint_Q4_Q6.png)
 
-\(Q_4\) and \(Q_6\) already provide a useful way of distinguishing the tested crystal structures.
+The \(Q_4\)-\(Q_6\) space provides a simple way to distinguish different crystal structures.
 
 ### Normalized third-order invariants
 
 ![Crystal symmetry fingerprint](results/crystal_fingerprint_What4_What6.png)
 
-The normalized third-order invariants provide additional symmetry information.  
-In particular, both the magnitude and sign of \(\hat{W}_4\) and \(\hat{W}_6\) help distinguish different local environments.
+The normalized third-order invariants provide additional symmetry information.
+
+Both the magnitude and sign of \(\hat{W}_4\) and \(\hat{W}_6\) help distinguish different local environments.
 
 ---
 
@@ -104,13 +106,13 @@ In particular, both the magnitude and sign of \(\hat{W}_4\) and \(\hat{W}_6\) he
 | BCC, first + second shell | 14 | 0.036370 | 0.510688 | 0.159317 | 0.013161 |
 | Simple cubic | 6 | 0.763763 | 0.353553 | 0.159317 | 0.013161 |
 
-For the perfect FCC structure, for example,
+For a perfect FCC structure:
 
 \[
-Q_2 \approx 0, \qquad Q_4 = 0.190941, \qquad Q_6 = 0.574524
+Q_2 \approx 0,\qquad Q_4 = 0.190941,\qquad Q_6 = 0.574524
 \]
 
-The very small calculated values at theoretically vanishing orders are numerical round-off.
+The very small calculated values at theoretically vanishing orders are due to numerical round-off.
 
 ---
 
@@ -129,31 +131,3 @@ features = calculate_steinhardt_descriptors(
     include_w=True,
     include_w_hat=True,
 )
-<<<<<<< HEAD
-=======
-
-## References
-
-1. P. J. Steinhardt, D. R. Nelson, and M. Ronchetti,
-"Bond-orientational order in liquids and glasses",
-Physical Review B, 28, 784–805 (1983).
-
-DOI:
-https://doi.org/10.1103/PhysRevB.28.784
-
-
-2. W. Lechner and C. Dellago,
-"Accurate determination of crystal structures based on averaged local bond order parameters",
-Journal of Chemical Physics, 129, 114707 (2008).
-
-DOI:
-https://doi.org/10.1063/1.2977970
-
-
-3. A. P. Bartók, R. Kondor, and G. Csányi,
-"On representing chemical environments",
-Physical Review B, 87, 184115 (2013).
-
-DOI:
-https://doi.org/10.1103/PhysRevB.87.184115
->>>>>>> f17088c (Add example structures and improve documentation references)
