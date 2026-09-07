@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Numba cache
+*.nbc
+*.nbi
+
+# Virtual environment
+.venv/
+
+# IDE files
+.vscode/
+.spyderproject
+.spyproject
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
