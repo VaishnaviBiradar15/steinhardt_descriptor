@@ -107,11 +107,7 @@ In particular, both the magnitude and sign of \(\hat{W}_4\) and \(\hat{W}_6\) he
 For the perfect FCC structure, for example,
 
 \[
-Q_2 \approx 0,
-\qquad
-Q_4 = 0.190941,
-\qquad
-Q_6 = 0.574524.
+Q_2 \approx 0, \qquad Q_4 = 0.190941, \qquad Q_6 = 0.574524
 \]
 
 The very small calculated values at theoretically vanishing orders are numerical round-off.
