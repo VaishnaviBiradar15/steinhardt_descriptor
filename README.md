@@ -14,52 +14,59 @@ The numerical kernels are accelerated with Numba, while ASE is used for structur
 
 ## Method
 
-For a central atom \(i\) with \(N_b\) neighbours, the local spherical-harmonic coefficients are
+For a central atom \(i\) with \(N_b\) neighbours, the local spherical-harmonic coefficients are calculated as
 
-\[
-q_{lm}(i)
-=
+$$
+q_{lm}(i)=
 \frac{1}{N_b}
 \sum_{j=1}^{N_b}
-Y_{lm}(\theta_{ij},\phi_{ij}).
-\]
+Y_{lm}(\theta_j,\phi_j)
+$$
 
-The second-order invariant is
+where \(Y_{lm}\) are the spherical harmonics evaluated along the neighbour bond directions.
 
-\[
-Q_l(i)
-=
+The second-order rotational invariant is
+
+$$
+Q_l(i)=
 \sqrt{
 \frac{4\pi}{2l+1}
 \sum_{m=-l}^{l}
 |q_{lm}(i)|^2
-}.
-\]
+}
+$$
 
-The third-order invariant is obtained by coupling three \(q_{lm}\) components using the Wigner 3-j symbol,
+The third-order invariant is obtained by coupling three \(q_{lm}\) components using the Wigner 3-j symbol:
 
-\[
-W_l(i)
-=
+$$
+W_l(i)=
 \sum_{m_1+m_2+m_3=0}
 \begin{pmatrix}
-l & l & l \\
+l & l & l\\
 m_1 & m_2 & m_3
 \end{pmatrix}
-q_{lm_1}q_{lm_2}q_{lm_3}.
-\]
+q_{lm_1}(i)
+q_{lm_2}(i)
+q_{lm_3}(i)
+$$
 
-Its normalized form is
+The normalized third-order invariant is
 
-\[
-\hat{W}_l(i)
-=
-\frac{W_l(i)}
-{\left(\sum_m |q_{lm}(i)|^2\right)^{3/2}}.
-\]
+$$
+\hat{W}_l(i)=
+\frac{
+W_l(i)
+}{
+\left(
+\sum_{m=-l}^{l}
+|q_{lm}(i)|^2
+\right)^{3/2}
+}
+$$
 
-More detailed mathematical derivations and discussion are kept separately in the project report.
+The implementation also provides global descriptors, where the averaging is performed over all bonds in the configuration instead of the neighbourhood of a single atom.
 
+A detailed derivation and mathematical discussion are provided separately in the project report.
 ---
 
 ## Results
