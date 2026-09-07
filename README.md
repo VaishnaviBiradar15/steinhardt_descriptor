@@ -129,3 +129,31 @@ features = calculate_steinhardt_descriptors(
     include_w=True,
     include_w_hat=True,
 )
+<<<<<<< HEAD
+=======
+
+## References
+
+1. P. J. Steinhardt, D. R. Nelson, and M. Ronchetti,
+"Bond-orientational order in liquids and glasses",
+Physical Review B, 28, 784–805 (1983).
+
+DOI:
+https://doi.org/10.1103/PhysRevB.28.784
+
+
+2. W. Lechner and C. Dellago,
+"Accurate determination of crystal structures based on averaged local bond order parameters",
+Journal of Chemical Physics, 129, 114707 (2008).
+
+DOI:
+https://doi.org/10.1063/1.2977970
+
+
+3. A. P. Bartók, R. Kondor, and G. Csányi,
+"On representing chemical environments",
+Physical Review B, 87, 184115 (2013).
+
+DOI:
+https://doi.org/10.1103/PhysRevB.87.184115
+>>>>>>> f17088c (Add example structures and improve documentation references)
