@@ -263,16 +263,6 @@ Three of the four bars for `W_hat_4` have identical height, 0.1593174, and FCC d
 BCC and SC only in sign. Same story for `W_hat_6` at 0.0131606. HCP is the only structure
 with a different magnitude. That is not a coincidence and section 4.5 derives it.
 
-**Figure 4: why Q_2 vanishes (generated for this report).**
-
-![Q2 symmetry check](results/Q2_symmetry_check.png)
-
-Left: `Q_2` for HCP as a function of the axial ratio. It touches zero at exactly
-`c/a = sqrt(8/3) = 1.632993` and rises linearly on both sides. Right: `Q_2` for FCC under a
-tetragonal strain along `c`. Zero at zero strain, and growing at roughly `0.48 x strain`
-after that. The two panels make the same point from opposite directions: `Q_2 = 0` is a
-statement about symmetry, not a property of the code.
-
 ---
 
 ## 4. Why the results look like this
