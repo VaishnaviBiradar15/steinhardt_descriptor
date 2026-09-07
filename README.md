@@ -132,6 +132,7 @@ features = calculate_steinhardt_descriptors(
 <<<<<<< HEAD
 =======
 
+---
 ## References
 
 1. P. J. Steinhardt, D. R. Nelson, and M. Ronchetti,
